@@ -16,3 +16,10 @@ def load_data():
     ee = fetch_ucirepo(id=242)
     raw_data = pd.concat([ee.data.features, ee.data.targets], axis=1)
     return raw_data.rename(columns=NAMES)
+
+def split_data(df):
+    """The ONE train/test split everyone uses (80/20, stratified by shape)."""
+    from sklearn.model_selection import train_test_split
+    X, Y = df[NUM + CAT], df[TARGETS]
+    return train_test_split(X, Y, test_size=0.2, random_state=SEED,
+                            stratify=df.compactness)
