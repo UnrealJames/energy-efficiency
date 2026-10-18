@@ -1,0 +1,5 @@
+target,RMSE,MAE,R2
+heating_load,0.29,0.21,1.0
+heating_load (OLS baseline),2.87,2.11,0.92
+cooling_load,0.64,0.47,1.0
+cooling_load (OLS baseline),3.0,2.13,0.9
